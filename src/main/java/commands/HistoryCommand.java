@@ -5,7 +5,7 @@ import utility.CommandHistory;
 
 public class HistoryCommand extends Command {
     public HistoryCommand(Console console) {
-        super("history", "prints out last " + CommandHistory.HISTORY_SIZE + " commands", console);
+        super("history", "Prints out last " + CommandHistory.HISTORY_SIZE + " executer commands", console);
     }
 
     @Override
