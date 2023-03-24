@@ -8,20 +8,30 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class CollectionManager {
-    private final Deque<SpaceMarine> marinesCollection = new ArrayDeque<>();
+    private Deque<SpaceMarine> marinesCollection = new ArrayDeque<>();
     private final LocalDateTime lastInitTime;
     private final LocalDateTime lastSaveTime;
-    private final FileManager fileManager;
+    private FileManager fileManager;
 
-    public CollectionManager(FileManager fileManager) {
+    public CollectionManager(String fileName) {
         this.lastInitTime = null;
         this.lastSaveTime = null;
-        this.fileManager = fileManager;
-
+        this.fileManager = new FileManager(fileName);
         loadCollection();
     }
 
+    public Deque<SpaceMarine> getMarinesCollection() {
+        return marinesCollection;
+    }
 
     private void loadCollection() {
+    }
+
+    public void setMarinesCollection(Deque<SpaceMarine> d) {
+        this.marinesCollection = d;
+    }
+
+    public String saveToFile() {
+        return fileManager.save(this.marinesCollection);
     }
 }

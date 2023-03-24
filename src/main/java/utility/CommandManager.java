@@ -1,9 +1,6 @@
 package utility;
 
-import commands.Command;
-import commands.ExitCommand;
-import commands.HelpCommand;
-import commands.HistoryCommand;
+import commands.*;
 import console.Console;
 
 import java.util.ArrayList;
@@ -19,7 +16,18 @@ public class CommandManager {
         commandList.add(new HelpCommand(console));
         commandList.add(new ExitCommand(console));
         commandList.add(new HistoryCommand(console));
-        //commandList.add(.....);
+        commandList.add(new ExecuteScriptCommand(console));
+        commandList.add(new AddCommand(console));
+        commandList.add(new ClearCommand(console));
+        commandList.add(new InfoCommand(console));
+        commandList.add(new MaxByCategoryCommand(console));
+        commandList.add(new PrintAscendingCommand(console));
+        commandList.add(new RemoveAllByHeartCountCommand(console));
+        commandList.add(new RemoveByIDCommand(console));
+        commandList.add(new RemoveHeadCommand(console));
+        commandList.add(new SaveCommand(console));
+        commandList.add(new UpdateCommand(console));
+        //commandList.add(new ..Command(console));
     }
 
     public Command pullCommandByName(String s) {

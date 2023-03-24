@@ -4,7 +4,7 @@ import console.Console;
 
 public class ExitCommand extends Command {
     public ExitCommand(Console console) {
-        super("exit", "Exits the program (no saving (no refunds))", console);
+        super("exit", "Exits the program without saving", console);
     }
 
     @Override

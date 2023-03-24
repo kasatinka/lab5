@@ -1,6 +1,7 @@
 package console;
 
 import commands.Command;
+import utility.CollectionManager;
 import utility.CommandHistory;
 import utility.CommandManager;
 import utility.CommandRunner;
@@ -11,17 +12,17 @@ import java.util.Scanner;
 
 public class Console {
     public static final char LINE_MARKER = '>';
-    private final Scanner scanner;
-    private final CommandRunner commandRunner;
-    private final CommandHistory commandHistory;
+    private Scanner scanner;
+    private final CommandRunner commandRunner = new CommandRunner();
+    private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
+    private final CollectionManager collectionManager;
 
 
-    public Console(Scanner scanner, CommandRunner commandRunner, CommandHistory commandHistory) {
+    public Console(Scanner scanner, String fileName) {
         this.scanner = scanner;
-        this.commandRunner = commandRunner;
-        this.commandHistory = commandHistory;
+        this.collectionManager = new CollectionManager(fileName);
     }
 
     public void init() {
@@ -61,6 +62,11 @@ public class Console {
     public List<Command> getCommandList() {
         return commandManager.getCommandList();
     }
+
+    public CollectionManager getCollectionManager() {
+        return this.collectionManager;
+    }
+
 
     private void launchCommand(String[] userCommand) {
         Command command = commandManager.pullCommandByName(userCommand[0]);
