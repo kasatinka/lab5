@@ -28,16 +28,12 @@ public class Console {
 
     public void init() {
         String[] input;
-        try {
-            do {
-                console.write(LINE_MARKER);
-                input = (scanner.nextLine().trim() + " ").split(" ", 2);
-                input[1] = input[1].trim();
-                launchCommand(input);
-            } while (true);
-        } catch (IllegalStateException exception) {
-            console.printError("Oops!");
-        }
+        do {
+            console.write(LINE_MARKER);
+            input = (scanner.nextLine().trim() + " ").split(" ", 2);
+            input[1] = input[1].trim();
+            launchCommand(input);
+        } while (true);
     }
 
     public void write(Object printable) {
