@@ -30,8 +30,7 @@ public class XMLHandler {
         try {
             jaxbContext = JAXBContext.newInstance(SpaceMarine.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            SpaceMarine marine = (SpaceMarine) jaxbUnmarshaller.unmarshal(xmlFile);
-            return marine;
+            return (SpaceMarine) jaxbUnmarshaller.unmarshal(xmlFile);
         } catch (JAXBException e) {
             e.printStackTrace();
             return null;

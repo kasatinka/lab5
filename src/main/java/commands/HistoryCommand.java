@@ -13,8 +13,10 @@ public class HistoryCommand extends Command {
     @Override
     public boolean execute() {
         LinkedList<Command> commandHistory = console.getCommandHistory();
+        int i = 0;
         for (Command command : commandHistory) {
-            console.writeLine(commandHistory.indexOf(command) + 1 + " " + command.getName());
+            i++;
+            console.writeLine(i + " " + command.getName());
         }
         return true;
     }

@@ -9,7 +9,7 @@ public class CommandHistory {
     private final LinkedList<Command> history = new LinkedList<>();
 
     public void push(Command command) {
-        if (history.size() > 10) {
+        if (history.size() > (HISTORY_SIZE - 1)) {
             history.removeFirst();
         }
         history.add(command);
