@@ -3,6 +3,8 @@ package commands;
 import console.Console;
 import utility.CommandHistory;
 
+import java.util.LinkedList;
+
 public class HistoryCommand extends Command {
     public HistoryCommand(Console console) {
         super("history", "Prints out the last " + CommandHistory.HISTORY_SIZE + " executed commands", console);
@@ -10,8 +12,9 @@ public class HistoryCommand extends Command {
 
     @Override
     public boolean execute() {
-        for (Command command : console.getCommandHistory()) {
-            console.writeLine(command.getName());
+        LinkedList<Command> commandHistory = console.getCommandHistory();
+        for (Command command : commandHistory) {
+            console.writeLine(commandHistory.indexOf(command) + " " + command.getName());
         }
         return true;
     }
