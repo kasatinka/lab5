@@ -14,7 +14,7 @@ public class HistoryCommand extends Command {
     public boolean execute() {
         LinkedList<Command> commandHistory = console.getCommandHistory();
         for (Command command : commandHistory) {
-            console.writeLine(commandHistory.indexOf(command) + " " + command.getName());
+            console.writeLine(commandHistory.indexOf(command) + 1 + " " + command.getName());
         }
         return true;
     }
