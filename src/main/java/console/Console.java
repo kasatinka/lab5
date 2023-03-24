@@ -1,7 +1,9 @@
 package console;
 
 import commands.Command;
-import utility.*;
+import utility.CommandHistory;
+import utility.CommandManager;
+import utility.CommandRunner;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -9,8 +11,6 @@ import java.util.Scanner;
 
 public class Console {
     public static final char LINE_MARKER = '>';
-    private final CollectionManager collectionManager;
-    private final FileManager fileManager;
     private final Scanner scanner;
     private final CommandRunner commandRunner;
     private final CommandHistory commandHistory;
@@ -18,9 +18,7 @@ public class Console {
     private final CommandManager commandManager = new CommandManager(console);
 
 
-    public Console(CollectionManager collectionManager, FileManager fileManager, Scanner scanner, CommandRunner commandRunner, CommandHistory commandHistory) {
-        this.fileManager = fileManager;
-        this.collectionManager = collectionManager;
+    public Console(Scanner scanner, CommandRunner commandRunner, CommandHistory commandHistory) {
         this.scanner = scanner;
         this.commandRunner = commandRunner;
         this.commandHistory = commandHistory;
