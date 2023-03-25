@@ -30,6 +30,7 @@ public class Console {
 
     public void init() {
         String[] input;
+        //noinspection InfiniteLoopStatement
         do {
             console.write(LINE_MARKER);
             input = (console.read().trim() + " ").split(" ", 3);
