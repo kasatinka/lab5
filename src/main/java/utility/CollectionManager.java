@@ -17,6 +17,8 @@ import java.util.Deque;
                   |         validation logic
                   |
  *            XMLHandler
+
+                  =)
  * */
 
 public class CollectionManager {
