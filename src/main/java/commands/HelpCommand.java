@@ -27,7 +27,7 @@ public class HelpCommand extends Command {
             if (done) {
                 return true;
             } else {
-                console.writeLine("Name \"" + a + "\" could not be resolved. Try typing \"help\" for reference.");
+                console.writeLine("No entry for \"" + a + "\" was found in the manual.");
             }
             return true;
         }

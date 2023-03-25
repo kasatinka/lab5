@@ -11,10 +11,12 @@ public class CollectionManager {
     private final LocalDateTime lastInitTime;
     private final LocalDateTime lastSaveTime;
     private FileManager fileManager;
+    private MarineManager marineManager;
     public CollectionManager(String fileName) {
         this.lastInitTime = null;
         this.lastSaveTime = null;
         this.fileManager = new FileManager(fileName);
+        this.marineManager = new MarineManager();
         loadCollection();
     }
 

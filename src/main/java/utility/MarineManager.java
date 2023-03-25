@@ -2,6 +2,7 @@ package utility;
 
 import exceptions.OutOfIDsException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -11,6 +12,10 @@ import java.util.List;
  */
 public class MarineManager {
     private List<Integer> IDs;
+
+    public MarineManager() {
+        this.IDs = new ArrayList<Integer>();
+    }
 
     public Integer generateID() throws OutOfIDsException {
         for (Integer i = 1; i < Integer.MAX_VALUE; i++) {
