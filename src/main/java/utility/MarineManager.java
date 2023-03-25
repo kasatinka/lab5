@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * Ensures nullability and non-nullability, max/min values
+ * Validation
  * contains partial functionality for commands "add",
  * generates unique IDs
  */
