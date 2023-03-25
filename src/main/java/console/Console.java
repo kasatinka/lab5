@@ -1,7 +1,6 @@
 package console;
 
 import commands.Command;
-import utility.CollectionManager;
 import utility.CommandHistory;
 import utility.CommandManager;
 import utility.CommandRunner;
@@ -10,6 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+/*Basic functionality is done.*/
+
 public class Console {
     public static final char LINE_MARKER = '>';
     private final Scanner scanner;
@@ -17,13 +18,11 @@ public class Console {
     private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
-    private final CollectionManager collectionManager;
     private String inputArgument = "";
 
 
     public Console(Scanner scanner, String fileName) {
         this.scanner = scanner;
-        this.collectionManager = new CollectionManager(fileName);
     }
 
     public void init() {
@@ -66,10 +65,6 @@ public class Console {
 
     public List<Command> getCommandList() {
         return commandManager.getCommandList();
-    }
-
-    public CollectionManager getCollectionManager() {
-        return this.collectionManager;
     }
 
     public String getInputArgument() {

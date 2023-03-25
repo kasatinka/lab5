@@ -36,6 +36,7 @@ public class FileManager {
 
     public ArrayDeque<SpaceMarine> load() {
         ArrayDeque<SpaceMarine> d = new ArrayDeque<>();
+
         return d;
     }
 }
