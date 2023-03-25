@@ -35,7 +35,7 @@ public class MarineManager {
         else throw new IDAlreadyExistsException();
     }
 
-    public boolean validateID(String ID) {
+    public boolean validateID(String ID) { // Integer
         return true;
     }
 
@@ -75,7 +75,7 @@ public class MarineManager {
         return heartCount == null || heartCount > 0 && heartCount < 4;
     }
 
-    public boolean validateAstartesCategory(String astartesCategory) { //AstartesCategory, Nullable
+    public boolean validateAstartesCategory(String astartesCategory) { // AstartesCategory, Nullable
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(astartesCategory)) return true;
         }
