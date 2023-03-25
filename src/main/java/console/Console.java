@@ -54,14 +54,6 @@ public class Console {
         return scanner.nextLine();
     }
 
-    public void printError(Object printable) {
-        System.out.println("error: " + printable);
-    }
-
-    public void flush() {
-        System.out.flush();
-    }
-
     public LinkedList<Command> getCommandHistory() {
         return commandHistory.getHistory();
     }
