@@ -18,6 +18,7 @@ public class Console {
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
     private final CollectionManager collectionManager;
+    private String inputArgument = "";
 
 
     public Console(Scanner scanner, String fileName) {
@@ -29,7 +30,7 @@ public class Console {
         String[] input;
         do {
             console.write(LINE_MARKER);
-            input = (scanner.nextLine().trim() + " ").split(" ", 2);
+            input = (scanner.nextLine().trim() + " ").split(" ", 3);
             input[1] = input[1].trim();
             launchCommand(input);
         } while (true);
@@ -67,16 +68,23 @@ public class Console {
         return this.collectionManager;
     }
 
+    public String getInputArgument() {
+        return this.inputArgument;
+    }
+
 
     private void launchCommand(String[] userCommand) {
         Command command = commandManager.pullCommandByName(userCommand[0]);
         if (!userCommand[0].equals("")) {
             if (command != null) {
-                commandRunner.executeCommand(command, userCommand[1]);
-                commandHistory.push(command);
+                inputArgument = userCommand[1];
+                if (commandRunner.executeCommand(command)) {
+                    commandHistory.push(command);
+                }
             } else {
                 writeLine("Name \"" + userCommand[0] + "\" could not be resolved. Try typing \"help\" for reference.");
             }
+            inputArgument = "";
         }
     }
 

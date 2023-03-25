@@ -4,8 +4,7 @@ import commands.Command;
 
 public class CommandRunner {
 
-    public void executeCommand(Command command, String argument) {
-        command.execute();
+    public boolean executeCommand(Command command) {
+        return command.execute();
     }
-
 }

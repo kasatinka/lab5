@@ -9,9 +9,27 @@ public class HelpCommand extends Command {
 
     @Override
     public boolean execute() {
-        for (Command c : console.getCommandList()) {
-            console.writef("%-37s", c.getName());
-            console.writeLine(c.getDescription());
+        String a = console.getInputArgument();
+        if (a.isEmpty()) {
+            for (Command c : console.getCommandList()) {
+                console.writef("%-37s", c.getName());
+                console.writeLine(c.getDescription());
+            }
+        } else {
+            boolean done = false;
+            for (Command c : console.getCommandList()) {
+                if (c.getName().equals(a)) {
+                    done = true;
+                    console.writef("%-37s", c.getName());
+                    console.writeLine(c.getDescription());
+                }
+            }
+            if (done) {
+                return true;
+            } else {
+                console.writeLine("Name \"" + a + "\" could not be resolved. Try typing \"help\" for reference.");
+            }
+            return true;
         }
         return true;
     }
