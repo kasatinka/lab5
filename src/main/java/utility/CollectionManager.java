@@ -6,6 +6,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
+/*
+ *                CollectionManager
+ *                       / \
+ *                      /   \
+ *                     /     \
+ *           FileManager     MarineManager
+ *                |
+ *                |
+ *            XMLHandler
+ * */
+
 public class CollectionManager {
     private Deque<SpaceMarine> marinesCollection = new ArrayDeque<>();
     private LocalDateTime lastLoadTime;
