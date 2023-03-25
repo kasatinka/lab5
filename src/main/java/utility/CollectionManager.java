@@ -25,8 +25,8 @@ public class CollectionManager {
     private Deque<SpaceMarine> marinesCollection = new ArrayDeque<>();
     private LocalDateTime lastLoadTime;
     private LocalDateTime lastSaveTime;
-    private FileManager fileManager;
-    private MarineManager marineManager;
+    private final FileManager fileManager;
+    private final MarineManager marineManager;
 
     public CollectionManager(String fileName) {
         this.lastLoadTime = null;
