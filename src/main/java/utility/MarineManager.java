@@ -1,5 +1,6 @@
 package utility;
 
+import data.AstartesCategory;
 import exceptions.IDAlreadyExistsException;
 import exceptions.OutOfIDsException;
 
@@ -34,5 +35,55 @@ public class MarineManager {
         IDs.add(ID);
     }
 
+    public boolean validateName(String name) {
+        return name != null && !name.isEmpty();
+    }
+
+    public boolean validateX(String x) {
+        double x1;
+        try {
+            x1 = Double.parseDouble(x);
+            return true;
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean validateY(String y) {
+        float y1;
+        try {
+            y1 = Float.parseFloat(y);
+            return true;
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public boolean validateHealth(Double health) {
+        return health == null || health > 0;
+    }
+
+    public boolean validateHeartCount(Long heartCount) {
+        return heartCount == null || heartCount > 0 && heartCount < 4;
+    }
+
+    public boolean validateAstartesCategory(String astartesCategory) {
+        for (AstartesCategory c : AstartesCategory.values()) {
+            if (c.name().equals(astartesCategory)) return true;
+        }
+        return astartesCategory == null;
+    }
+
+    public boolean validateMeleeWeapon(String meleeWeapon) {
+        for (AstartesCategory c : AstartesCategory.values()) {
+            if (c.name().equals(meleeWeapon)) return true;
+        }
+        return meleeWeapon == null;
+    }
+
+    public boolean validateChapterName(String name) {
+        return name != null && !name.isEmpty();
+
+    }
 
 }
