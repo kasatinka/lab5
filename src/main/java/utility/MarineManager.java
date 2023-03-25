@@ -29,10 +29,8 @@ public class MarineManager {
     }
 
     public void addIDToList(Integer ID) throws IDAlreadyExistsException {
-        if (IDs.contains(ID)) {
-            throw new IDAlreadyExistsException();
-        }
-        IDs.add(ID);
+        if (IDs.contains(ID)) IDs.add(ID);
+        else throw new IDAlreadyExistsException();
     }
 
     public boolean validateName(String name) {
@@ -40,9 +38,8 @@ public class MarineManager {
     }
 
     public boolean validateX(String x) {
-        double x1;
         try {
-            x1 = Double.parseDouble(x);
+            Double.parseDouble(x);
             return true;
         } catch (java.lang.NumberFormatException e) {
             return false;
@@ -50,9 +47,8 @@ public class MarineManager {
     }
 
     public boolean validateY(String y) {
-        float y1;
         try {
-            y1 = Float.parseFloat(y);
+            Float.parseFloat(y);
             return true;
         } catch (java.lang.NumberFormatException e) {
             return false;
