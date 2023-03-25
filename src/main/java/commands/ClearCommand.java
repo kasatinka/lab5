@@ -1,9 +1,6 @@
 package commands;
 
 import console.Console;
-import data.SpaceMarine;
-
-import java.util.ArrayDeque;
 
 public class ClearCommand extends Command {
     public ClearCommand(Console console) {
@@ -12,7 +9,7 @@ public class ClearCommand extends Command {
 
     @Override
     public boolean execute() {
-        console.getCollectionManager().setMarinesCollection(new ArrayDeque<SpaceMarine>());
+        //.setMarinesCollection(new ArrayDeque<SpaceMarine>());
         return true;
     }
 }

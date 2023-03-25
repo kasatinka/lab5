@@ -40,14 +40,13 @@ public class CollectionManager {
         return marinesCollection;
     }
 
+    public void setMarinesCollection(Deque<SpaceMarine> d) {
+        this.marinesCollection = d;
+    }
 
     private void loadCollection() {
         lastLoadTime = LocalDateTime.now();
         setMarinesCollection(fileManager.load());
-    }
-
-    public void setMarinesCollection(Deque<SpaceMarine> d) {
-        this.marinesCollection = d;
     }
 
     public String saveCollection() {

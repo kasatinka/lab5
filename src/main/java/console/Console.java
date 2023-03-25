@@ -1,6 +1,7 @@
 package console;
 
 import commands.Command;
+import utility.CollectionManager;
 import utility.CommandHistory;
 import utility.CommandManager;
 import utility.CommandRunner;
@@ -18,11 +19,13 @@ public class Console {
     private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
+    private CollectionManager collectionManager;
     private String inputArgument = "";
 
 
     public Console(Scanner scanner, String fileName) {
         this.scanner = scanner;
+        this.collectionManager = new CollectionManager(fileName);
     }
 
     public void init() {
