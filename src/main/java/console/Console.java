@@ -19,7 +19,7 @@ public class Console {
     private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
-    private CollectionManager collectionManager;
+    private final CollectionManager collectionManager;
     private String inputArgument = "";
 
 
@@ -68,6 +68,10 @@ public class Console {
 
     public List<Command> getCommandList() {
         return commandManager.getCommandList();
+    }
+
+    public CollectionManager getCollectionManager() {
+        return this.collectionManager;
     }
 
     public String getInputArgument() {
