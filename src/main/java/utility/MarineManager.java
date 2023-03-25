@@ -33,20 +33,24 @@ public class MarineManager {
         else throw new IDAlreadyExistsException();
     }
 
-    public boolean validateName(String name) {
+    public boolean validateID(String ID) {
+        return true;
+    }
+
+    public boolean validateName(String name) { // String
         return name != null && !name.isEmpty();
     }
 
-    public boolean validateX(String x) {
+    public boolean validateX(String x) { // Double
         try {
-            Double.parseDouble(x);
+            Double.parseDouble(x.trim());
             return true;
         } catch (java.lang.NumberFormatException e) {
             return false;
         }
     }
 
-    public boolean validateY(String y) {
+    public boolean validateY(String y) { // Float
         try {
             Float.parseFloat(y);
             return true;
@@ -55,29 +59,35 @@ public class MarineManager {
         }
     }
 
-    public boolean validateHealth(Double health) {
-        return health == null || health > 0;
+    public boolean validateHealth(String health) { // Double
+        if (health.isEmpty()) return true;
+        try {
+            Double d = Double.parseDouble(health);
+            return d > 0;
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
     }
 
-    public boolean validateHeartCount(Long heartCount) {
+    public boolean validateHeartCount(Long heartCount) { // Long
         return heartCount == null || heartCount > 0 && heartCount < 4;
     }
 
-    public boolean validateAstartesCategory(String astartesCategory) {
+    public boolean validateAstartesCategory(String astartesCategory) { //AstartesCategory
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(astartesCategory)) return true;
         }
         return astartesCategory == null;
     }
 
-    public boolean validateMeleeWeapon(String meleeWeapon) {
+    public boolean validateMeleeWeapon(String meleeWeapon) { // MeleeWeapon
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(meleeWeapon)) return true;
         }
         return meleeWeapon == null;
     }
 
-    public boolean validateChapterName(String name) {
+    public boolean validateChapterName(String name) { // Chapter
         return name != null && !name.isEmpty();
 
     }
