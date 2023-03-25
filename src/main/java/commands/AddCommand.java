@@ -10,8 +10,9 @@ public class AddCommand extends Command {
     @Override
     public boolean execute() {
         console.writeLine("Adding new marine...");
-
-
+        console.writeLine("Enter a name..");
+        String name = console.read();
+        console.writeLine("");
         return true;
     }
 }

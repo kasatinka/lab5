@@ -5,6 +5,7 @@ import data.SpaceMarine;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
@@ -33,7 +34,8 @@ public class FileManager {
         }
     }
 
-    /*public ArrayDeque<SpaceMarine> load(){
-
-    }*/
+    public ArrayDeque<SpaceMarine> load() {
+        ArrayDeque<SpaceMarine> d = new ArrayDeque<>();
+        return d;
+    }
 }

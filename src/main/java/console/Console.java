@@ -30,7 +30,7 @@ public class Console {
         String[] input;
         do {
             console.write(LINE_MARKER);
-            input = (scanner.nextLine().trim() + " ").split(" ", 3);
+            input = (console.read().trim() + " ").split(" ", 3);
             input[1] = input[1].trim();
             launchCommand(input);
         } while (true);
@@ -46,6 +46,10 @@ public class Console {
 
     public void writef(String mask, Object printable) {
         System.out.printf(mask, printable);
+    }
+
+    public String read() {
+        return scanner.nextLine();
     }
 
     public void printError(Object printable) {
