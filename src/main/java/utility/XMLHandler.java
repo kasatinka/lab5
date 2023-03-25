@@ -10,13 +10,13 @@ import java.io.File;
 import java.io.StringWriter;
 
 public class XMLHandler {
-    public String spaceMarineToXML(SpaceMarine o) {
+    public String spaceMarineToXML(SpaceMarine spaceMarine) {
         try {
             JAXBContext jaxbContext = JAXBContext.newInstance(SpaceMarine.class);
             Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
             jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             StringWriter sw = new StringWriter();
-            jaxbMarshaller.marshal(o, sw);
+            jaxbMarshaller.marshal(spaceMarine, sw);
             return sw.toString();
 
         } catch (JAXBException e) {

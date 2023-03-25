@@ -6,8 +6,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Deque;
+import java.util.Scanner;
 
 public class FileManager {
+    private Scanner fileScanner;
     private String fileName;
     private final XMLHandler xmlHandler = new XMLHandler();
     private File file;
@@ -15,6 +17,7 @@ public class FileManager {
     public FileManager(String fileName) {
         this.fileName = fileName;
         this.file = new File(fileName);
+        this.fileScanner = new Scanner(fileName);
     }
 
     public String save(Deque<SpaceMarine> marinesCollection) {
