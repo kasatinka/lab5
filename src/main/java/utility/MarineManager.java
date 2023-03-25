@@ -1,5 +1,6 @@
 package utility;
 
+import exceptions.IDAlreadyExistsException;
 import exceptions.OutOfIDsException;
 
 import java.util.ArrayList;
@@ -24,6 +25,13 @@ public class MarineManager {
             }
         }
         throw new OutOfIDsException();
+    }
+
+    public void addIDToList(Integer ID) throws IDAlreadyExistsException {
+        if (IDs.contains(ID)) {
+            throw new IDAlreadyExistsException();
+        }
+        IDs.add(ID);
     }
 
 
