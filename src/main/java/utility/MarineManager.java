@@ -31,7 +31,13 @@ public class MarineManager {
     }
 
     public boolean validateID(String ID) { // Integer
-        return true;
+        Integer id;
+        try {
+            id = Integer.parseInt(ID);
+            return IDs.contains(id);
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
     }
 
     public boolean validateName(String name) { // String
@@ -66,27 +72,38 @@ public class MarineManager {
         }
     }
 
-    public boolean validateHeartCount(Long heartCount) { // Long, Nullable
-        return heartCount == null || heartCount > 0 && heartCount < 4;
+    public boolean validateHeartCount(String heartCount) { // Long, Nullable
+        if (heartCount.isEmpty()) return true;
+        try {
+            Long l = Long.parseLong(heartCount);
+            return l > 0 && l < 4;
+        } catch (java.lang.NumberFormatException e) {
+            return false;
+        }
     }
 
     public boolean validateAstartesCategory(String astartesCategory) { // AstartesCategory, Nullable
+        if (astartesCategory.isEmpty()) return true;
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(astartesCategory)) return true;
         }
-        return astartesCategory == null;
+        return false;
     }
 
     public boolean validateMeleeWeapon(String meleeWeapon) { // MeleeWeapon, Nullable
+        if (meleeWeapon.isEmpty()) return true;
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(meleeWeapon)) return true;
         }
-        return meleeWeapon == null;
+        return false;
     }
 
-    public boolean validateChapterName(String name) { // Chapter, Nullable
+    public boolean validateChapterName(String name) { // String, Nullable
         return name != null && !name.isEmpty();
+    }
 
+    public boolean validateChapterParentLegion(String parentLegion) { // String, Nullable
+        return true;
     }
 
 }
