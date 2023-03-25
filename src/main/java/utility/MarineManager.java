@@ -14,6 +14,7 @@ import java.util.List;
  */
 
 public class MarineManager {
+
     private List<Integer> IDs;
 
     public MarineManager() {
