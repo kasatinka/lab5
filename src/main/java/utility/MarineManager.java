@@ -59,7 +59,7 @@ public class MarineManager {
         }
     }
 
-    public boolean validateHealth(String health) { // Double
+    public boolean validateHealth(String health) { // Double, Nullable
         if (health.isEmpty()) return true;
         try {
             Double d = Double.parseDouble(health);
@@ -69,25 +69,25 @@ public class MarineManager {
         }
     }
 
-    public boolean validateHeartCount(Long heartCount) { // Long
+    public boolean validateHeartCount(Long heartCount) { // Long, Nullable
         return heartCount == null || heartCount > 0 && heartCount < 4;
     }
 
-    public boolean validateAstartesCategory(String astartesCategory) { //AstartesCategory
+    public boolean validateAstartesCategory(String astartesCategory) { //AstartesCategory, Nullable
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(astartesCategory)) return true;
         }
         return astartesCategory == null;
     }
 
-    public boolean validateMeleeWeapon(String meleeWeapon) { // MeleeWeapon
+    public boolean validateMeleeWeapon(String meleeWeapon) { // MeleeWeapon, Nullable
         for (AstartesCategory c : AstartesCategory.values()) {
             if (c.name().equals(meleeWeapon)) return true;
         }
         return meleeWeapon == null;
     }
 
-    public boolean validateChapterName(String name) { // Chapter
+    public boolean validateChapterName(String name) { // Chapter, Nullable
         return name != null && !name.isEmpty();
 
     }
