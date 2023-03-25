@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class Console {
     public static final char LINE_MARKER = '>';
-    private Scanner scanner;
+    private final Scanner scanner;
     private final CommandRunner commandRunner = new CommandRunner();
     private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
