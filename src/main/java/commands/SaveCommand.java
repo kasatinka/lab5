@@ -9,7 +9,7 @@ public class SaveCommand extends Command {
 
     @Override
     public boolean execute() {
-        console.writeLine(console.getCollectionManager().saveCollection());
+        console.writeLine(console.getApp().getCollectionManager().saveCollection());
         return true;
     }
 }

@@ -1,5 +1,6 @@
 package console;
 
+import app.App;
 import commands.Command;
 import utility.CollectionManager;
 import utility.CommandHistory;
@@ -19,13 +20,13 @@ public class Console {
     private final CommandHistory commandHistory = new CommandHistory();
     private final Console console = this;
     private final CommandManager commandManager = new CommandManager(console);
-    private final CollectionManager collectionManager;
+    private final App app;
     private String inputArgument = "";
 
 
-    public Console(Scanner scanner, String fileName) {
+    public Console(Scanner scanner, App app) {
         this.scanner = scanner;
-        this.collectionManager = new CollectionManager(fileName);
+        this.app = app;
     }
 
     public void init() {
@@ -63,8 +64,8 @@ public class Console {
         return commandManager.getCommandList();
     }
 
-    public CollectionManager getCollectionManager() {
-        return this.collectionManager;
+    public App getApp() {
+        return this.app;
     }
 
     public String getInputArgument() {
@@ -90,4 +91,6 @@ public class Console {
     public void close() {
         System.exit(0);
     }
+
+
 }
