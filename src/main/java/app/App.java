@@ -10,8 +10,7 @@ public class App {
     private final CollectionManager collectionManager;
 
     public App(String fileName) {
-        App app = this;
-        this.console = new Console(new Scanner(System.in), app);
+        this.console = new Console(new Scanner(System.in), this);
         this.collectionManager = new CollectionManager(fileName);
     }
 
@@ -19,7 +18,7 @@ public class App {
         console.init();
     }
 
-    public CollectionManager getCollectionManager(){
+    public CollectionManager getCollectionManager() {
         return this.collectionManager;
     }
 
