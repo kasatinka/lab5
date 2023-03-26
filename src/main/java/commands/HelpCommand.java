@@ -22,6 +22,7 @@ public class HelpCommand extends Command {
                     done = true;
                     console.writef("%-37s", c.getName());
                     console.writeLine(c.getDescription());
+                    break;
                 }
             }
             if (done) {
