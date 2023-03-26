@@ -2,7 +2,6 @@ package console;
 
 import app.App;
 import commands.Command;
-import utility.CollectionManager;
 import utility.CommandHistory;
 import utility.CommandManager;
 import utility.CommandRunner;
@@ -11,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-/*Basic functionality is done.*/
+/*Basic functionality is complete. No need to touch this class anymore.*/
 
 public class Console {
     public static final char LINE_MARKER = '>';
