@@ -6,11 +6,11 @@ import utility.CollectionManager;
 import java.util.Scanner;
 
 public class App {
-    private Console console;
-    private CollectionManager collectionManager;
-    private final App app = this;
+    private final Console console;
+    private final CollectionManager collectionManager;
 
     public App(String fileName) {
+        App app = this;
         this.console = new Console(new Scanner(System.in), app);
         this.collectionManager = new CollectionManager(fileName);
     }
