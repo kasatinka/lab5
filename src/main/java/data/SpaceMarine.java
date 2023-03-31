@@ -15,7 +15,6 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     private MeleeWeapon meleeWeapon;
     private Chapter chapter;
 
-
     public Integer getId() {
         return id;
     }
@@ -24,8 +23,16 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Coordinates getCoordinates() {
         return coordinates;
+    }
+
+    public void setCoordinates(Coordinates coordinates) {
+        this.coordinates = coordinates;
     }
 
     public Date getCreationDate() {
@@ -36,20 +43,40 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
         return health;
     }
 
+    public void setHealth(Double health) {
+        this.health = health;
+    }
+
     public Long getHeartCount() {
         return heartCount;
+    }
+
+    public void setHeartCount(Long heartCount) {
+        this.heartCount = heartCount;
     }
 
     public AstartesCategory getCategory() {
         return category;
     }
 
+    public void setCategory(AstartesCategory category) {
+        this.category = category;
+    }
+
     public MeleeWeapon getMeleeWeapon() {
         return meleeWeapon;
     }
 
+    public void setMeleeWeapon(MeleeWeapon meleeWeapon) {
+        this.meleeWeapon = meleeWeapon;
+    }
+
     public Chapter getChapter() {
         return chapter;
+    }
+
+    public void setChapter(Chapter chapter) {
+        this.chapter = chapter;
     }
 
     @Override

@@ -57,4 +57,11 @@ public class CollectionManager {
         lastSaveTime = LocalDateTime.now();
         return fileManager.save(this.marinesCollection);
     }
+
+//    public void addToCollection(
+//            String name,
+//    ) {
+//
+//    }
+
 }
