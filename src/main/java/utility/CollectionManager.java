@@ -22,11 +22,11 @@ import java.util.Deque;
  * */
 
 public class CollectionManager {
+    private final FileManager fileManager;
+    private final MarineManager marineManager;
     private Deque<SpaceMarine> marinesCollection = new ArrayDeque<>();
     private LocalDateTime lastLoadTime;
     private LocalDateTime lastSaveTime;
-    private final FileManager fileManager;
-    private final MarineManager marineManager;
 
     public CollectionManager(String fileName) {
         this.lastLoadTime = null;
@@ -42,6 +42,10 @@ public class CollectionManager {
 
     public void setMarinesCollection(Deque<SpaceMarine> d) {
         this.marinesCollection = d;
+    }
+
+    public void clearMarinesCollection() {
+        this.marinesCollection = new ArrayDeque<>();
     }
 
     private void loadCollection() {
