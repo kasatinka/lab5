@@ -71,6 +71,9 @@ public class Console {
         return this.inputArgument;
     }
 
+    public Scanner getScanner() {
+        return this.scanner;
+    }
 
     private void launchCommand(String[] userCommand) {
         Command command = commandManager.pullCommandByName(userCommand[0]);
