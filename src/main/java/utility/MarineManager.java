@@ -4,7 +4,8 @@ import data.AstartesCategory;
 import exceptions.IDAlreadyExistsException;
 import exceptions.OutOfIDsException;
 
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /*
  * Validation
@@ -14,10 +15,10 @@ import java.util.ArrayList;
 
 public class MarineManager {
 
-    private ArrayList<Integer> IDs = new ArrayList<>();
+    private Set<Integer> IDs = new HashSet<>();
 
     public Integer generateID() throws OutOfIDsException {
-        for (Integer i = 1; i < Integer.MAX_VALUE; i++) {
+        for (int i = 1; i < Integer.MAX_VALUE; i++) {
             if (!IDs.contains(i)) {
                 return i;
             }
