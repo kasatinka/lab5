@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 /*
  * Validation
- * provides functionality functionality for commands "add",
+ * provides functionality for commands "add",
  * generates unique IDs
  */
 
