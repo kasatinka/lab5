@@ -10,17 +10,12 @@ public class HelpCommand extends Command {
     @Override
     public boolean execute() {
         String inputArgument = console.getInputArgument();
-
-        // Display all available commands and their descriptions
         if (inputArgument.isEmpty()) {
             for (Command command : console.getCommandList()) {
                 console.writef("%-37s", command.getName());
                 console.writeLine(command.getDescription());
             }
-        }
-
-        // Display the description of a specific command
-        else {
+        } else {
             boolean found = false;
             for (Command command : console.getCommandList()) {
                 if (command.getName().equals(inputArgument)) {
