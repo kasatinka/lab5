@@ -33,7 +33,7 @@ public class Console {
         //noinspection InfiniteLoopStatement
         do {
             console.write(LINE_MARKER);
-            input = (console.read().trim() + " ").split(" ", 3);
+            input = (console.read().trim().replaceAll(" +", " ") + " ").split(" ", 3);
             input[1] = input[1].trim();
             launchCommand(input);
         } while (true);
@@ -77,14 +77,14 @@ public class Console {
 
     private void launchCommand(String[] userCommand) {
         Command command = commandManager.pullCommandByName(userCommand[0]);
-        if (!userCommand[0].equals("")) {
+        if (!userCommand[0].isEmpty()) {
             if (command != null) {
                 inputArgument = userCommand[1];
                 if (commandRunner.executeCommand(command)) {
                     commandHistory.push(command);
                 }
             } else {
-                writeLine("Name \"" + userCommand[0] + "\" could not be resolved. Try typing \"help\" for reference.");
+                writeLine("Name \"" + userCommand[0] + "\" could not be resolved.");
             }
             inputArgument = "";
         }
