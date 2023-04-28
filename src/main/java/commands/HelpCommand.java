@@ -10,27 +10,29 @@ public class HelpCommand extends Command {
     @Override
     public boolean execute() {
         String inputArgument = console.getInputArgument();
+
+        // Display all available commands and their descriptions
         if (inputArgument.isEmpty()) {
-            for (Command c : console.getCommandList()) {
-                console.writef("%-37s", c.getName());
-                console.writeLine(c.getDescription());
+            for (Command command : console.getCommandList()) {
+                console.writef("%-37s", command.getName());
+                console.writeLine(command.getDescription());
             }
-        } else {
-            boolean done = false;
-            for (Command c : console.getCommandList()) {
-                if (c.getName().equals(inputArgument)) {
-                    done = true;
-                    console.writef("%-37s", c.getName());
-                    console.writeLine(c.getDescription());
+        }
+
+        // Display the description of a specific command
+        else {
+            boolean found = false;
+            for (Command command : console.getCommandList()) {
+                if (command.getName().equals(inputArgument)) {
+                    found = true;
+                    console.writef("%-37s", command.getName());
+                    console.writeLine(command.getDescription());
                     break;
                 }
             }
-            if (done) {
-                return true;
-            } else {
+            if (!found) {
                 console.writeLine("No entry for \"" + inputArgument + "\" was found in the manual.");
             }
-            return true;
         }
         return true;
     }
