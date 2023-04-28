@@ -64,11 +64,11 @@ public class Console {
     }
 
     public App getApp() {
-        return this.app;
+        return app;
     }
 
     public String getInputArgument() {
-        return this.inputArgument;
+        return inputArgument;
     }
 
     public Scanner getScanner() {
