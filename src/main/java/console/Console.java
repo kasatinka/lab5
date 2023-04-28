@@ -76,8 +76,8 @@ public class Console {
     }
 
     private void launchCommand(String[] userCommand) {
-        Command command = commandManager.pullCommandByName(userCommand[0]);
         if (!userCommand[0].isEmpty()) {
+            Command command = commandManager.pullCommandByName(userCommand[0]);
             if (command != null) {
                 inputArgument = userCommand[1];
                 if (commandRunner.executeCommand(command)) {
