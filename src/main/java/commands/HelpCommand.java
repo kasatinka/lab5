@@ -8,6 +8,7 @@ public class HelpCommand extends Command {
     }
 
     @Override
+    //TODO: Abstractisize the mask (command length)
     public boolean execute() {
         String inputArgument = console.getInputArgument();
         if (inputArgument.isEmpty()) {
