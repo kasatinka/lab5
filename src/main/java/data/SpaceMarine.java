@@ -15,6 +15,17 @@ public class SpaceMarine implements Comparable<SpaceMarine> {
     private MeleeWeapon meleeWeapon;
     private Chapter chapter;
 
+    public SpaceMarine(String name, Coordinates coordinates, Date creationDate, Double health, Long heartCount, AstartesCategory category, MeleeWeapon meleeWeapon, Chapter chapter) {
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = creationDate;
+        this.health = health;
+        this.heartCount = heartCount;
+        this.category = category;
+        this.meleeWeapon = meleeWeapon;
+        this.chapter = chapter;
+    }
+
     public Integer getId() {
         return id;
     }

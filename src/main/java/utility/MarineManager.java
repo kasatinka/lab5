@@ -17,6 +17,10 @@ public class MarineManager {
 
     private List<Integer> IDs = new ArrayList<>();
 
+    public boolean validateName(String name) { // String
+        return name != null && !name.isEmpty();
+    }
+
     public Integer generateID() throws OutOfIDsException {
         for (int i = 1; i < Integer.MAX_VALUE; i++) {
             if (!IDs.contains(i)) {
@@ -39,10 +43,6 @@ public class MarineManager {
         } catch (java.lang.NumberFormatException e) {
             return false;
         }
-    }
-
-    public boolean validateName(String name) { // String
-        return name != null && !name.isEmpty();
     }
 
     public boolean validateX(String x) { // Double

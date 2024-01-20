@@ -6,19 +6,27 @@ import java.time.LocalDateTime;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-/*                 CollectionManager
-                         info
-                   collection itself
- *                       / \
- *                      /   \
- *                     /     \
- *           FileManager     MarineManager
-              r/w file        id generator
-                  |         validation logic
-                  |
- *            XMLHandler
+/*
+                     App
+                      |
+             -------------------
+             |                 |
+        Console                |
+        /     \                |
+       /       \               |
+    commands    \       CollectionManager
+               GUI           info
+                       collection itself
+     *                       / \
+     *                      /   \
+     *                     /     \
+     *           FileManager     MarineManager
+                  r/w file        id generator
+                      |         validation logic
+                      |
+     *            XMLHandler
 
-                  =)
+                      =)
  * */
 
 public class CollectionManager {
@@ -46,6 +54,10 @@ public class CollectionManager {
 
     public void clearMarinesCollection() {
         this.marinesCollection = new ArrayDeque<>();
+    }
+
+    public MarineManager getMarineManager() {
+        return marineManager;
     }
 
     private void loadCollection() {

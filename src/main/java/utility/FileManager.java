@@ -11,17 +11,17 @@ import java.util.Scanner;
 
 public class FileManager {
     private final XMLHandler xmlHandler = new XMLHandler();
+    private final File file;
     private Scanner fileScanner;
     private String fileName;
-    private File file;
     private FileWriter fileWriter;
 
     public FileManager(String fileName) {
         this.fileName = fileName;
         this.file = new File(fileName);
-        this.fileScanner = new Scanner(fileName);
+        this.fileScanner = new Scanner(fileName);   ////
         try {
-            this.fileWriter = new FileWriter(file);
+            this.fileWriter = new FileWriter(file); ////
         } catch (IOException e) {
             System.out.println("Can't access file");
         }
@@ -30,9 +30,11 @@ public class FileManager {
     public String save(Deque<SpaceMarine> marinesCollection) {
         try (FileWriter collectionFileWriter = new FileWriter(file)) {
             String s = "";
+            s += getXMLHeader();
             for (SpaceMarine marine : marinesCollection) {
                 s += xmlHandler.spaceMarineToXML(marine);
             }
+            s += getXMLFooter();
             collectionFileWriter.write(s);
             return "Collection is saved";
         } catch (IOException exception) {
@@ -42,15 +44,17 @@ public class FileManager {
 
     public ArrayDeque<SpaceMarine> load() {
         ArrayDeque<SpaceMarine> d = new ArrayDeque<>();
+        d.add(xmlHandler.xmlToSpaceMarine(this.file));
+
 
         return d;
     }
 
-    private void writeXMLHeader() {
-
+    private String getXMLHeader() {
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>";
     }
 
-    private void writeXMLFooter() {
-
+    private String getXMLFooter() {
+        return "";
     }
 }

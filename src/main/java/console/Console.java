@@ -13,7 +13,7 @@ import java.util.Scanner;
 /*Basic functionality is complete. No need to touch this class anymore.*/
 
 public class Console {
-    public static final char LINE_MARKER = '>';
+    public static char LINE_MARKER = '>';
     private final Scanner scanner;
     private final CommandRunner commandRunner = new CommandRunner();
     private final CommandHistory commandHistory = new CommandHistory();
@@ -26,6 +26,10 @@ public class Console {
     public Console(Scanner scanner, App app) {
         this.scanner = scanner;
         this.app = app;
+    }
+
+    public static void setLineMarker(char lineMarker) {
+        LINE_MARKER = lineMarker;
     }
 
     public void init() {
