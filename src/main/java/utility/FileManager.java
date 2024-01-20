@@ -44,7 +44,7 @@ public class FileManager {
 
     public ArrayDeque<SpaceMarine> load() {
         ArrayDeque<SpaceMarine> d = new ArrayDeque<>();
-        d.add(xmlHandler.xmlToSpaceMarine(this.file));
+        //d.add(xmlHandler.xmlToSpaceMarine(this.file));
 
 
         return d;
